@@ -1,0 +1,22 @@
+CREATE DATABASE IF NOT EXISTS `task5_jokes`
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE `task5_jokes`;
+
+CREATE TABLE IF NOT EXISTS `jokes` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `type` ENUM('single', 'twopart') NOT NULL,
+  `joke` TEXT NULL,
+  `setup` TEXT NULL,
+  `delivery` TEXT NULL,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `logs` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `url` VARCHAR(500) NOT NULL,
+  `date_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
